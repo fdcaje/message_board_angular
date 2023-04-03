@@ -1,15 +1,25 @@
+@use "sass:math"
+
 .nav
     display: flex
     flex-flow: row wrap
     align-items: center
     padding-block: $gap
-    gap: $gap
+    margin: -#{math.div($gap, 2)}
     &__block
         flex: 1
+        padding: math.div($gap, 2)
+    &__logo
+        .logo
+            font-size: 2rem
+            font-weight: 600
     &__controls
         display: flex
         flex-flow: row wrap
-        flex: 0 1 30%
-        gap: $gap
+        flex: 0 1 60%
+        margin: -#{math.div($gap, 2)}
         &__control
             flex: 1
+            padding: math.div($gap, 2)
+            .btn
+                width: 100%

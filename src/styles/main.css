@@ -5,10 +5,101 @@
           box-sizing: border-box;
 }
 
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #1A1B1C;
+}
+
+button, input, textarea {
+  color: inherit;
+  font: inherit;
+  font-size: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+a, li {
+  text-decoration: none;
+  color: inherit;
+  list-style: none;
+}
+
 .container {
   max-width: 1200px;
   padding-inline: 16px;
   margin-inline: auto;
+}
+
+.input {
+  display: block;
+  padding: 0.75em 0.75em;
+  border: 1px solid #F5F5F5;
+  border-radius: 0.35em;
+  cursor: text;
+  position: relative;
+}
+.input label {
+  position: absolute;
+  cursor: inherit;
+}
+.input.active label {
+  bottom: 100%;
+  font-size: 1.2rem;
+}
+.input input[type=text] {
+  width: 100%;
+  border: none;
+  outline: none;
+  font: inherit;
+}
+
+.btn {
+  display: block;
+  padding: 0.75em 1.5em;
+  background: #F5F5F5;
+  border-radius: 0.35em;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.btn--fluid {
+  width: 100%;
+}
+
+.form-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: -8px;
+}
+.row .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  padding: 8px;
 }
 
 .nav {
@@ -23,12 +114,17 @@
       -ms-flex-align: center;
           align-items: center;
   padding-block: 16px;
-  gap: 16px;
+  margin: -8px;
 }
 .nav__block {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 8px;
+}
+.nav__logo .logo {
+  font-size: 2rem;
+  font-weight: 600;
 }
 .nav__controls {
   display: -webkit-box;
@@ -39,12 +135,16 @@
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 30%;
-          flex: 0 1 30%;
-  gap: 16px;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
+  margin: -8px;
 }
 .nav__controls__control {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  padding: 8px;
+}
+.nav__controls__control .btn {
+  width: 100%;
 }
