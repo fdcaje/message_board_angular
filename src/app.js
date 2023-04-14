@@ -1,7 +1,8 @@
 "use strict";
-import { validate } from "./controllers/Auth.js";
+import Auth from "./controllers/Auth.js";
+import User from "./controllers/User.js";
 import { render } from "./directives/directives.js";
-import { activateBehaviorByClassname } from "./utils.js";
+import { activateBehaviorByClassname, setRequired } from "./utils.js";
 
 const app = angular.module("App", []);
 
@@ -15,7 +16,7 @@ app.directive("applyBehavior", [
         const unboundRender = render.startRender;
         const boundRender = unboundRender.bind(render);
         return boundRender(() => $timeout(activateBehaviorByClassname("input", "input"), 0));
-        
+
         // const def = {
         //     restrict: "A",
         //     terminal: true,
@@ -30,15 +31,21 @@ app.directive("applyBehavior", [
 ]);
 
 function AppController($scope) {
-    $scope.name = validate("Bro");
+    // $scope.name = validate("Bro");
 }
 
 function Login($scope) {
     $scope.username = "";
     $scope.password = "";
-    // activateBehaviorByClassname("input", "input");
-    // $scope.init = () => {
-    // }
+    $scope.data = [];
+
+    $scope.signin = () => {
+        if (Auth.login($scope.username, $scope.password)) {
+            $scope.data = User.getUser(Auth.getAuth());
+            console.log($scope.data);
+        }
+    };
+    
 }
 
 function Register($scope) {

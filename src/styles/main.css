@@ -53,6 +53,9 @@ a, li {
   bottom: 100%;
   font-size: 1.2rem;
 }
+.input.required label {
+  color: red;
+}
 .input input[type=text] {
   width: 100%;
   border: none;
